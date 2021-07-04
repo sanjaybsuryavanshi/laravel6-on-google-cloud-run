@@ -1,6 +1,17 @@
-web:
-    image: my-laravel-image
-    ports:
-        - 8000:8000
+#web:
+ #   image: my-laravel-image
+  #  ports:
+   #     - 8000:8000
+   # volumes:
+   #     - ./:/app
+version: '3.5'
+services:
+  app:
+    build:
+      context: ./
     volumes:
-        - ./:/app
+      - .:/var/www
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=local
